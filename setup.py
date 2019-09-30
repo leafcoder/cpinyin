@@ -1,24 +1,17 @@
 #!/usr/bin/env python
 
 import io
-import posixpath
 from setuptools import setup
 from distutils.extension import Extension
 
-BASE_DIR = posixpath.abspath(
-    posixpath.join(posixpath.dirname(posixpath.dirname(__file__))))
-README = io.open(
-    posixpath.join(BASE_DIR, 'README.md'), encoding='UTF-8').read()
+README = io.open('README.md', encoding='UTF-8').read()
 
 setup(
     name='cpinyin',
     ext_modules=[
-        Extension(
-            'cpinyin._cpinyin',
-            sources=['src/cpinyin/_cpinyin.pyx'],
-        )
+        Extension("_cpinyin", ["src/cpinyin/_cpinyin.pyx"])
     ],
-    version='0.1.0',
+    version='0.1.1',
     description="Rewrite lxneng's xpinyin by cython",
     long_description=README,
     classifiers=[
@@ -43,8 +36,11 @@ setup(
         '': 'src',
         'src': 'src/cpinyin'
     },
+    setup_requires=[
+        'setuptools>=19.2.3',
+        'Cython==0.29.13'
+    ],
     install_requires=[
-        'Cython==0.29.13',
         'xpinyin==0.5.6'
     ],
     packages=['cpinyin'],
