@@ -1,16 +1,23 @@
-# cpinyin
+cpinyin
+=========
 
-Rewrite [lxneng](https://github.com/lxneng)'s [xpinyin](https://github.com/lxneng/xpinyin) by cython since by commit [`3599c101f659bb7cfbc7e5c5c5684206e4fab5f9`](https://github.com/lxneng/xpinyin/commit/3599c101f659bb7cfbc7e5c5c5684206e4fab5f9).
+Rewrite `lxneng`'s `xpinyin` by cython since by commit `3599c101f659bb7cfbc7e5c5c5684206e4fab5f9 <https://github.com/lxneng/xpinyin/commit/3599c101f659bb7cfbc7e5c5c5684206e4fab5f9>`.
 
-The interfaces are completely consistent and can be seamlessly switched with [xpinyin](https://github.com/lxneng/xpinyin);
+The interfaces are completely consistent and can be seamlessly switched with `xpinyin`;
 
-## Install
+Install
+--------
+
+::
 
     pip install cpinyin
 
-## Usage
+Usage
+------
 
 Replace xpinyin.Pinyin with cpinyin.Pinyin
+
+::
 
     >>> import cpinyin
     >>> cpinyin.install()
@@ -19,7 +26,9 @@ Replace xpinyin.Pinyin with cpinyin.Pinyin
     >>> p.get_pinyin(u"上海")
     'shang-hai'
 
-Consistent with the [xpinyin](https://github.com/lxneng/xpinyin) Api.
+Consistent with the `xpinyin` Api.
+
+::
 
     >>> from cpinyin import Pinyin
     >>> p = Pinyin()
@@ -52,3 +61,7 @@ Please enter Chinese characters encoding by utf8.
     >>> wordvalue= unicode(wordvalue, 'utf-8')
     >>> s = p.get_initials(wordvalue, u'').lower()
     'zg'
+
+
+.. _lxneng: https://github.com/lxneng
+.. _xpinyin: https://github.com/lxneng/xpinyin

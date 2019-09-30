@@ -25,12 +25,29 @@ cdef class Pinyin(object):
     Rewrite lxneng's xpinyin by cython.
 
     Install
-    ----------
+    --------
+
+    ::
 
         pip install cpinyin
 
     Usage
-    -----
+    ------
+
+    Replace xpinyin.Pinyin with cpinyin.Pinyin
+
+    ::
+
+        >>> import cpinyin
+        >>> cpinyin.install()
+        >>> from xpinyin import Pinyin
+        >>> p = Pinyin()
+        >>> p.get_pinyin(u"上海")
+        'shang-hai'
+
+    Consistent with the `xpinyin` Api.
+
+    ::
 
         >>> from cpinyin import Pinyin
         >>> p = Pinyin()
@@ -57,11 +74,15 @@ cdef class Pinyin(object):
         >>> p.get_initials(u"上海", u' ')
         'S H'
         
-        Please enter Chinese characters encoding by utf8.
+    Please enter Chinese characters encoding by utf8.
+
         >>> wordvalue = '中国'
         >>> wordvalue= unicode(wordvalue, 'utf-8')
         >>> s = p.get_initials(wordvalue, u'').lower()
         'zg'
+
+    .. _lxneng: https://github.com/lxneng
+    .. _xpinyin: https://github.com/lxneng/xpinyin
     """
 
     cdef public dict dict

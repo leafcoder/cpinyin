@@ -4,14 +4,14 @@ import io
 from setuptools import setup
 from distutils.extension import Extension
 
-README = io.open('README.md', encoding='UTF-8').read()
+README = io.open('README.rst', encoding='UTF-8').read()
 
 setup(
     name='cpinyin',
     ext_modules=[
-        Extension("_cpinyin", ["src/cpinyin/_cpinyin.pyx"])
+        Extension("cpinyin._cpinyin", ["src/cpinyin/_cpinyin.pyx"])
     ],
-    version='0.1.1',
+    version='0.1.2',
     description="Rewrite lxneng's xpinyin by cython",
     long_description=README,
     classifiers=[
